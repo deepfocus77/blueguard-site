@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueGuard - 설치 가이드</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Malgun Gothic', sans-serif;
+            color: #1a1a2e;
+            line-height: 1.7;
+            background: #f8f9fa;
+        }
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 { font-size: 1.8rem; margin-bottom: 8px; }
+        header p { opacity: 0.8; font-size: 1rem; }
+        .container {
+            max-width: 800px;
+            margin: 32px auto;
+            padding: 0 20px;
+        }
+
+        /* Notice */
+        .notice {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+            color: #664d03;
+        }
+        .notice strong { color: #cc9a06; }
+
+        /* Step card */
+        .step-card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            position: relative;
+        }
+        .step-num {
+            position: absolute;
+            top: -16px;
+            left: 24px;
+            background: #0f3460;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        .step-card h2 {
+            font-size: 1.2rem;
+            color: #0f3460;
+            margin-bottom: 16px;
+            padding-left: 32px;
+        }
+        .step-card p {
+            font-size: 0.95rem;
+            color: #444;
+            margin-bottom: 12px;
+        }
+
+        /* Screenshot placeholder */
+        .screenshot {
+            background: #f0f4ff;
+            border: 2px dashed #b0c4de;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 16px 0;
+            text-align: center;
+            position: relative;
+        }
+        .screenshot img {
+            max-width: 100%;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        .screenshot .caption {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Instruction box */
+        .instruction {
+            background: #f8f9fa;
+            border-left: 4px solid #0f3460;
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .instruction code {
+            background: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* Highlight */
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .highlight-blue {
+            background: #d0e8ff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Key visual */
+        .key-visual {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 8px 0;
+        }
+        .key-visual .key {
+            background: #e9ecef;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 4px 12px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 0 #bbb;
+        }
+
+        /* Warning */
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c2c7;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            color: #842029;
+            font-size: 0.9rem;
+        }
+
+        /* Success */
+        .success {
+            background: #d1e7dd;
+            border: 1px solid #badbcc;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            color: #0f5132;
+            font-size: 0.9rem;
+        }
+
+        /* Arrow indicator */
+        .arrow {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #0f3460;
+            margin: 8px 0;
+        }
+
+        /* Menu path */
+        .menu-path {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.9rem;
+        }
+        .menu-path span {
+            background: #e9ecef;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .menu-path .sep {
+            background: none;
+            padding: 0;
+            color: #999;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            font-size: 0.85rem;
+        }
+        footer a { color: #0f3460; text-decoration: none; }
+
+        /* Print styles */
+        @media print {
+            body { background: white; }
+            .step-card { box-shadow: none; border: 1px solid #ddd; }
+            header { background: #1a1a2e; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>BlueGuard 설치 가이드</h1>
+    <p>Chrome 확장 프로그램 수동 설치 매뉴얼</p>
+</header>
+
+<div class="container">
+
+    <div class="notice">
+        <strong>안내:</strong> 이 가이드는 BlueGuard 확장 프로그램을 Chrome에 수동으로 설치하는 방법입니다.<br>
+        소요 시간: 약 2~3분 | 난이도: 쉬움
+    </div>
+
+    <!-- ==================== STEP 1 ==================== -->
+    <div class="step-card">
+        <div class="step-num">1</div>
+        <h2>zip 파일 압축 해제</h2>
+        <p>배포받은 <span class="highlight">blueguard-extension.zip</span> 파일을 바탕화면이나 원하는 폴더에 압축 해제합니다.</p>
+        <div class="instruction">
+            <p>zip 파일을 <strong>마우스 오른쪽 클릭</strong> &rarr; <strong>"압축 풀기"</strong> 또는 <strong>"여기에 풀기"</strong> 선택</p>
+        </div>
+        <div class="screenshot">
+            <div style="background: #e8edf3; border-radius: 6px; padding: 24px; text-align: left;">
+                <div style="font-family: monospace; font-size: 0.85rem; color: #333;">
+                    <div style="margin-bottom: 8px; font-weight: bold;">&#128193; blueguard-extension</div>
+                    <div style="padding-left: 20px; color: #555;">
+                        &#128196; manifest.json<br>
+                        &#128196; background.js<br>
+                        &#128196; content-script.js<br>
+                        &#128196; popup.html<br>
+                        &#128193; icons/<br>
+                        &#128193; lib/<br>
+                        &#128193; styles/<br>
+                        ...
+                    </div>
+                </div>
+            </div>
+            <div class="caption">압축 해제 후 폴더 구조</div>
+        </div>
+        <div class="warning">
+            <strong>주의:</strong> 압축 해제한 폴더를 삭제하면 확장 프로그램이 작동하지 않습니다. 삭제하지 않을 위치에 압축을 풀어주세요.
+        </div>
+    </div>
+
+    <!-- ==================== STEP 2 ==================== -->
+    <div class="step-card">
+        <div class="step-num">2</div>
+        <h2>Chrome 확장 프로그램 페이지 열기</h2>
+        <p>Chrome 브라우저를 열고, 주소창에 아래 주소를 입력합니다:</p>
+        <div class="instruction">
+            <p>주소창에 입력: <code>chrome://extensions</code> &rarr; <strong>Enter</strong></p>
+        </div>
+        <div class="screenshot">
+            <div style="background: white; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+                <div style="background: #f1f3f4; padding: 8px 16px; display: flex; align-items: center; gap: 12px;">
+                    <span style="color: #999;">&larr; &rarr;</span>
+                    <div style="background: white; border: 1px solid #ddd; border-radius: 20px; padding: 6px 16px; flex: 1; font-size: 0.85rem; color: #333;">
+                        chrome://extensions
+                    </div>
+                </div>
+                <div style="padding: 20px; text-align: left; font-size: 0.9rem; color: #333;">
+                    <div style="font-size: 1.3rem; font-weight: 500; margin-bottom: 16px;">확장 프로그램</div>
+                </div>
+            </div>
+            <div class="caption">Chrome 확장 프로그램 관리 페이지</div>
+        </div>
+    </div>
+
+    <!-- ==================== STEP 3 ==================== -->
+    <div class="step-card">
+        <div class="step-num">3</div>
+        <h2>개발자 모드 켜기</h2>
+        <p>확장 프로그램 페이지의 <strong>오른쪽 상단</strong>에 있는 <span class="highlight">개발자 모드</span> 토글을 켭니다.</p>
+        <div class="screenshot">
+            <div style="background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 1.3rem; font-weight: 500;">확장 프로그램</span>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 0.9rem; color: #444;">개발자 모드</span>
+                        <div style="width: 44px; height: 24px; background: #1a73e8; border-radius: 12px; position: relative; cursor: pointer;">
+                            <div style="width: 20px; height: 20px; background: white; border-radius: 50%; position: absolute; top: 2px; right: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 16px; display: flex; gap: 12px;">
+                    <div style="background: #f1f3f4; padding: 8px 16px; border-radius: 4px; font-size: 0.85rem; color: #1a73e8; border: 1px solid #dadce0;">압축해제된 확장 프로그램을 로드합니다.</div>
+                    <div style="background: #f1f3f4; padding: 8px 16px; border-radius: 4px; font-size: 0.85rem; color: #666; border: 1px solid #dadce0;">확장 프로그램 압축</div>
+                    <div style="background: #f1f3f4; padding: 8px 16px; border-radius: 4px; font-size: 0.85rem; color: #666; border: 1px solid #dadce0;">업데이트</div>
+                </div>
+            </div>
+            <div class="caption">개발자 모드를 켜면 상단에 3개의 버튼이 나타납니다</div>
+        </div>
+    </div>
+
+    <!-- ==================== STEP 4 ==================== -->
+    <div class="step-card">
+        <div class="step-num">4</div>
+        <h2>"압축해제된 확장 프로그램을 로드합니다" 클릭</h2>
+        <p>개발자 모드를 켜면 나타나는 <span class="highlight-blue">압축해제된 확장 프로그램을 로드합니다.</span> 버튼을 클릭합니다.</p>
+        <div class="screenshot">
+            <div style="background: white; border: 1px solid #ddd; border-radius: 8px; padding: 16px;">
+                <div style="display: flex; gap: 12px;">
+                    <div style="background: #e8f0fe; padding: 10px 18px; border-radius: 4px; font-size: 0.9rem; color: #1a73e8; border: 2px solid #1a73e8; font-weight: 500; cursor: pointer;">
+                        &#128072; 압축해제된 확장 프로그램을 로드합니다.
+                    </div>
+                    <div style="background: #f1f3f4; padding: 10px 18px; border-radius: 4px; font-size: 0.9rem; color: #666; border: 1px solid #dadce0;">확장 프로그램 압축</div>
+                    <div style="background: #f1f3f4; padding: 10px 18px; border-radius: 4px; font-size: 0.9rem; color: #666; border: 1px solid #dadce0;">업데이트</div>
+                </div>
+            </div>
+            <div class="caption">왼쪽 첫 번째 버튼을 클릭하세요</div>
+        </div>
+    </div>
+
+    <!-- ==================== STEP 5 ==================== -->
+    <div class="step-card">
+        <div class="step-num">5</div>
+        <h2>압축 해제한 폴더 선택</h2>
+        <p>폴더 선택 창이 열리면, <strong>STEP 1</strong>에서 압축 해제한 폴더를 선택하고 <span class="highlight">폴더 선택</span>을 클릭합니다.</p>
+        <div class="instruction">
+            <p><strong>중요:</strong> <code>manifest.json</code> 파일이 있는 폴더를 선택해야 합니다.</p>
+            <p>예시: <code>C:\Users\사용자\Desktop\blueguard-extension</code></p>
+        </div>
+        <div class="screenshot">
+            <div style="background: white; border: 1px solid #ddd; border-radius: 8px; padding: 16px;">
+                <div style="background: #f5f5f5; border: 1px solid #ccc; border-radius: 4px; padding: 12px; margin-bottom: 12px;">
+                    <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem;">
+                        <span>&#128193;</span>
+                        <span style="color: #1a73e8; font-weight: 500;">blueguard-extension</span>
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <span style="background: #1a73e8; color: white; padding: 8px 24px; border-radius: 4px; font-size: 0.9rem;">폴더 선택</span>
+                </div>
+            </div>
+            <div class="caption">manifest.json이 들어있는 폴더를 선택합니다</div>
+        </div>
+    </div>
+
+    <!-- ==================== STEP 6 ==================== -->
+    <div class="step-card">
+        <div class="step-num">6</div>
+        <h2>설치 완료 확인</h2>
+        <p>설치가 완료되면 확장 프로그램 목록에 <span class="highlight-blue">BlueGuard - AI 보안 게이트웨이</span>가 나타납니다.</p>
+        <div class="screenshot">
+            <div style="background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="width: 48px; height: 48px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.4rem; flex-shrink: 0;">B</div>
+                    <div style="flex: 1;">
+                        <div style="font-size: 1rem; font-weight: 600; color: #1a1a2e;">BlueGuard - AI 보안 게이트웨이</div>
+                        <div style="font-size: 0.8rem; color: #888; margin-top: 2px;">버전 0.2.1</div>
+                        <div style="font-size: 0.85rem; color: #555; margin-top: 6px;">기업용 AI 보안 게이트웨이 - AI 서비스 사용을 모니터링하고 데이터 유출을 방지합니다</div>
+                        <div style="margin-top: 12px; display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 20px; background: #1a73e8; border-radius: 10px; position: relative;">
+                                <div style="width: 16px; height: 16px; background: white; border-radius: 50%; position: absolute; top: 2px; right: 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.3);"></div>
+                            </div>
+                            <span style="font-size: 0.8rem; color: #1a73e8;">사용</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="caption">BlueGuard가 정상적으로 설치된 모습</div>
+        </div>
+        <div class="success">
+            <strong>설치 완료!</strong> BlueGuard가 활성화되어 있으면 AI 서비스(ChatGPT, Gemini, Claude 등) 사용 시 자동으로 보안 검사가 수행됩니다.
+        </div>
+    </div>
+
+    <!-- ==================== STEP 7 (optional) ==================== -->
+    <div class="step-card">
+        <div class="step-num">7</div>
+        <h2>도구 모음에 고정 (선택사항)</h2>
+        <p>Chrome 주소창 오른쪽의 <span class="highlight">퍼즐 아이콘 (&#128295;)</span>을 클릭한 후, BlueGuard 옆의 <strong>핀 아이콘</strong>을 클릭하면 도구 모음에 항상 표시됩니다.</p>
+        <div class="screenshot">
+            <div style="background: white; border: 1px solid #ddd; border-radius: 8px; padding: 16px;">
+                <div style="border: 1px solid #eee; border-radius: 8px; padding: 12px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 24px; height: 24px; background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.7rem;">B</div>
+                            <span style="font-size: 0.9rem;">BlueGuard - AI 보안 게이트웨이</span>
+                        </div>
+                        <span style="font-size: 1.1rem; color: #1a73e8; cursor: pointer;" title="고정">&#128204;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="caption">핀 아이콘을 클릭하여 도구 모음에 고정</div>
+        </div>
+    </div>
+
+    <!-- ==================== Troubleshooting ==================== -->
+    <div class="step-card" style="border-left: 4px solid #ffc107;">
+        <h2 style="padding-left: 0;">&#9888; 문제 해결</h2>
+
+        <p><strong>Q: "매니페스트 파일이 누락되었거나 읽을 수 없습니다" 오류가 나타나요</strong></p>
+        <div class="instruction">
+            <p>zip 파일 안의 폴더가 아닌, <code>manifest.json</code>이 직접 들어있는 폴더를 선택해야 합니다.<br>
+            폴더를 열었을 때 <code>manifest.json</code> 파일이 바로 보여야 합니다.</p>
+        </div>
+
+        <p><strong>Q: 확장 프로그램이 "사용 중지됨"으로 나타나요</strong></p>
+        <div class="instruction">
+            <p>확장 프로그램 카드의 토글 스위치를 클릭하여 <strong>사용</strong>으로 변경해주세요.</p>
+        </div>
+
+        <p><strong>Q: Chrome 업데이트 후 확장 프로그램이 사라졌어요</strong></p>
+        <div class="instruction">
+            <p>STEP 2~5를 다시 수행하여 재설치해주세요. 압축 해제한 원본 폴더가 남아있어야 합니다.</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <a href="index.html">BlueGuard Home</a> &middot;
+    <a href="privacy.html">Privacy Policy</a>
+    <p style="margin-top: 12px;">&copy; 2026 BlueGuard Security</p>
+</footer>
+
+</body>
+</html>
