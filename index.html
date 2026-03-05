@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlueGuard - AI 보안 게이트웨이</title>
+    <title>BlueGuard - AI Security Gateway</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -11,6 +11,34 @@
             color: #1a1a2e;
             line-height: 1.6;
             background: #f8f9fa;
+        }
+
+        /* Lang switch */
+        .lang-switch {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 100;
+            display: flex;
+            gap: 4px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 4px;
+        }
+        .lang-btn {
+            padding: 6px 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: transparent;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.2s;
+        }
+        .lang-btn.active {
+            background: white;
+            color: #0f3460;
         }
 
         /* Hero */
@@ -93,9 +121,7 @@
             gap: 24px;
             text-align: center;
         }
-        .step {
-            padding: 24px;
-        }
+        .step { padding: 24px; }
         .step .num {
             display: inline-flex;
             align-items: center;
@@ -109,14 +135,8 @@
             font-weight: bold;
             margin-bottom: 16px;
         }
-        .step h4 {
-            margin-bottom: 8px;
-            color: #1a1a2e;
-        }
-        .step p {
-            font-size: 0.9rem;
-            color: #666;
-        }
+        .step h4 { margin-bottom: 8px; color: #1a1a2e; }
+        .step p { font-size: 0.9rem; color: #666; }
 
         /* Targets */
         .targets {
@@ -152,47 +172,74 @@
             color: rgba(255,255,255,0.9);
             text-decoration: none;
         }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        .footer-links {
-            margin-top: 16px;
-        }
-        .footer-links a {
-            margin: 0 12px;
-            font-size: 0.9rem;
-        }
+        footer a:hover { text-decoration: underline; }
+        .footer-links { margin-top: 16px; }
+        .footer-links a { margin: 0 12px; font-size: 0.9rem; }
+
+        /* i18n */
+        [data-lang="ko"] { display: none; }
+        body.ko [data-lang="ko"] { display: initial; }
+        body.ko [data-lang="en"] { display: none; }
     </style>
 </head>
 <body>
 
+<div class="lang-switch">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ko" onclick="setLang('ko')">KO</button>
+</div>
+
 <div class="hero">
     <img src="icon128.png" alt="BlueGuard Logo">
     <h1>BlueGuard</h1>
-    <p>AI 보안 게이트웨이 - 기업의 AI 서비스 사용을 모니터링하고 민감 데이터 유출을 방지하는 Chrome 확장 프로그램</p>
-    <span class="badge">Chrome Extension &middot; Enterprise Security</span>
+    <p>
+        <span data-lang="en">AI Security Gateway - A Chrome extension that monitors AI service usage and prevents sensitive data leakage in enterprise environments.</span>
+        <span data-lang="ko">AI 보안 게이트웨이 - 기업의 AI 서비스 사용을 모니터링하고 민감 데이터 유출을 방지하는 Chrome 확장 프로그램</span>
+    </p>
+    <span class="badge">Chrome Extension &middot; Enterprise Security &middot; Free &amp; Open Use</span>
 </div>
 
 <div class="features">
     <div class="feature-card">
         <div class="icon">&#128274;</div>
-        <h3>키워드 기반 보안</h3>
-        <p>사전 등록된 키워드를 감지하여 민감 정보의 AI 서비스 입력을 실시간으로 차단하거나 경고합니다.</p>
+        <h3>
+            <span data-lang="en">Keyword-Based Protection</span>
+            <span data-lang="ko">키워드 기반 보안</span>
+        </h3>
+        <p>
+            <span data-lang="en">Detects pre-registered sensitive keywords in real-time and blocks or warns before data is submitted to AI services.</span>
+            <span data-lang="ko">사전 등록된 키워드를 감지하여 민감 정보의 AI 서비스 입력을 실시간으로 차단하거나 경고합니다.</span>
+        </p>
     </div>
     <div class="feature-card">
         <div class="icon">&#128196;</div>
-        <h3>문서 파일 스캔</h3>
-        <p>PDF, DOCX, PPTX, XLSX 등 첨부 파일을 자동 분석하여 민감 데이터 포함 여부를 검사합니다.</p>
+        <h3>
+            <span data-lang="en">Document File Scanning</span>
+            <span data-lang="ko">문서 파일 스캔</span>
+        </h3>
+        <p>
+            <span data-lang="en">Automatically scans attached files (PDF, DOCX, PPTX, XLSX) for sensitive data before upload to AI services.</span>
+            <span data-lang="ko">PDF, DOCX, PPTX, XLSX 등 첨부 파일을 자동 분석하여 민감 데이터 포함 여부를 검사합니다.</span>
+        </p>
     </div>
     <div class="feature-card">
         <div class="icon">&#128225;</div>
-        <h3>프록시 기반 모니터링</h3>
-        <p>기업 프록시 서버를 통해 AI 서비스 사용 현황을 중앙에서 모니터링하고 로그를 관리합니다.</p>
+        <h3>
+            <span data-lang="en">Proxy-Based Monitoring</span>
+            <span data-lang="ko">프록시 기반 모니터링</span>
+        </h3>
+        <p>
+            <span data-lang="en">Centrally monitor AI service usage through an enterprise proxy server with comprehensive logging and reporting.</span>
+            <span data-lang="ko">기업 프록시 서버를 통해 AI 서비스 사용 현황을 중앙에서 모니터링하고 로그를 관리합니다.</span>
+        </p>
     </div>
 </div>
 
 <div class="section">
-    <h2>지원 AI 서비스</h2>
+    <h2>
+        <span data-lang="en">Supported AI Services</span>
+        <span data-lang="ko">지원 AI 서비스</span>
+    </h2>
     <div class="targets">
         <div class="target-list">
             <span class="target-item">ChatGPT</span>
@@ -207,37 +254,81 @@
 </div>
 
 <div class="section">
-    <h2>동작 원리</h2>
+    <h2>
+        <span data-lang="en">How It Works</span>
+        <span data-lang="ko">동작 원리</span>
+    </h2>
     <div class="steps">
         <div class="step">
             <div class="num">1</div>
-            <h4>설치</h4>
-            <p>관리자가 EXE 인스톨러를 배포하면 Chrome에 자동으로 확장이 설치됩니다.</p>
+            <h4>
+                <span data-lang="en">Install</span>
+                <span data-lang="ko">설치</span>
+            </h4>
+            <p>
+                <span data-lang="en">Administrators deploy the EXE installer, and the Chrome extension is automatically installed.</span>
+                <span data-lang="ko">관리자가 EXE 인스톨러를 배포하면 Chrome에 자동으로 확장이 설치됩니다.</span>
+            </p>
         </div>
         <div class="step">
             <div class="num">2</div>
-            <h4>감지</h4>
-            <p>사용자가 AI 서비스에 텍스트 또는 파일을 입력하면 실시간으로 키워드를 검사합니다.</p>
+            <h4>
+                <span data-lang="en">Detect</span>
+                <span data-lang="ko">감지</span>
+            </h4>
+            <p>
+                <span data-lang="en">When users input text or upload files to AI services, keywords are scanned in real-time.</span>
+                <span data-lang="ko">사용자가 AI 서비스에 텍스트 또는 파일을 입력하면 실시간으로 키워드를 검사합니다.</span>
+            </p>
         </div>
         <div class="step">
             <div class="num">3</div>
-            <h4>차단/경고</h4>
-            <p>민감 키워드 발견 시 입력을 차단하거나 경고 오버레이를 표시합니다.</p>
+            <h4>
+                <span data-lang="en">Block / Warn</span>
+                <span data-lang="ko">차단 / 경고</span>
+            </h4>
+            <p>
+                <span data-lang="en">If sensitive keywords are found, the input is blocked or a warning overlay is displayed.</span>
+                <span data-lang="ko">민감 키워드 발견 시 입력을 차단하거나 경고 오버레이를 표시합니다.</span>
+            </p>
         </div>
         <div class="step">
             <div class="num">4</div>
-            <h4>리포트</h4>
-            <p>모든 활동은 프록시 서버에 로깅되어 관리자가 대시보드에서 확인합니다.</p>
+            <h4>
+                <span data-lang="en">Report</span>
+                <span data-lang="ko">리포트</span>
+            </h4>
+            <p>
+                <span data-lang="en">All activities are logged to the proxy server and available on the admin dashboard.</span>
+                <span data-lang="ko">모든 활동은 프록시 서버에 로깅되어 관리자가 대시보드에서 확인합니다.</span>
+            </p>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 BlueGuard Security. All rights reserved.</p>
+    <p>
+        <span data-lang="en">BlueGuard is not for sale and is freely available for use. No commercial purpose.</span>
+        <span data-lang="ko">BlueGuard는 판매 목적이 아니며, 누구나 자유롭게 사용할 수 있습니다.</span>
+    </p>
+    <p style="margin-top:12px">&copy; 2026 BlueGuard Security. All rights reserved.</p>
     <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
     </div>
 </footer>
+
+<script>
+function setLang(lang) {
+    document.body.className = lang === 'ko' ? 'ko' : '';
+    document.getElementById('btn-en').className = 'lang-btn' + (lang === 'en' ? ' active' : '');
+    document.getElementById('btn-ko').className = 'lang-btn' + (lang === 'ko' ? ' active' : '');
+    localStorage.setItem('lang', lang);
+}
+(function() {
+    var saved = localStorage.getItem('lang');
+    if (saved === 'ko') setLang('ko');
+})();
+</script>
 
 </body>
 </html>
