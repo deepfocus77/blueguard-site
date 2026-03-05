@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueGuard - AI 보안 게이트웨이</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #1a1a2e;
+            line-height: 1.6;
+            background: #f8f9fa;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero img {
+            width: 96px;
+            height: 96px;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Features */
+        .features {
+            max-width: 960px;
+            margin: -40px auto 0;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .feature-card .icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #0f3460;
+        }
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Section */
+        .section {
+            max-width: 960px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            color: #0f3460;
+            text-align: center;
+        }
+
+        /* How it works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            text-align: center;
+        }
+        .step {
+            padding: 24px;
+        }
+        .step .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: #0f3460;
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+        .step h4 {
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+        .step p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Targets */
+        .targets {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .target-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .target-item {
+            background: #f0f4ff;
+            border: 1px solid #d0d8f0;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        footer a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .footer-links {
+            margin-top: 16px;
+        }
+        .footer-links a {
+            margin: 0 12px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <img src="icon128.png" alt="BlueGuard Logo">
+    <h1>BlueGuard</h1>
+    <p>AI 보안 게이트웨이 - 기업의 AI 서비스 사용을 모니터링하고 민감 데이터 유출을 방지하는 Chrome 확장 프로그램</p>
+    <span class="badge">Chrome Extension &middot; Enterprise Security</span>
+</div>
+
+<div class="features">
+    <div class="feature-card">
+        <div class="icon">&#128274;</div>
+        <h3>키워드 기반 보안</h3>
+        <p>사전 등록된 키워드를 감지하여 민감 정보의 AI 서비스 입력을 실시간으로 차단하거나 경고합니다.</p>
+    </div>
+    <div class="feature-card">
+        <div class="icon">&#128196;</div>
+        <h3>문서 파일 스캔</h3>
+        <p>PDF, DOCX, PPTX, XLSX 등 첨부 파일을 자동 분석하여 민감 데이터 포함 여부를 검사합니다.</p>
+    </div>
+    <div class="feature-card">
+        <div class="icon">&#128225;</div>
+        <h3>프록시 기반 모니터링</h3>
+        <p>기업 프록시 서버를 통해 AI 서비스 사용 현황을 중앙에서 모니터링하고 로그를 관리합니다.</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>지원 AI 서비스</h2>
+    <div class="targets">
+        <div class="target-list">
+            <span class="target-item">ChatGPT</span>
+            <span class="target-item">Google Gemini</span>
+            <span class="target-item">Claude</span>
+            <span class="target-item">Grok</span>
+            <span class="target-item">Microsoft Copilot</span>
+            <span class="target-item">Perplexity</span>
+            <span class="target-item">Genspark</span>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>동작 원리</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="num">1</div>
+            <h4>설치</h4>
+            <p>관리자가 EXE 인스톨러를 배포하면 Chrome에 자동으로 확장이 설치됩니다.</p>
+        </div>
+        <div class="step">
+            <div class="num">2</div>
+            <h4>감지</h4>
+            <p>사용자가 AI 서비스에 텍스트 또는 파일을 입력하면 실시간으로 키워드를 검사합니다.</p>
+        </div>
+        <div class="step">
+            <div class="num">3</div>
+            <h4>차단/경고</h4>
+            <p>민감 키워드 발견 시 입력을 차단하거나 경고 오버레이를 표시합니다.</p>
+        </div>
+        <div class="step">
+            <div class="num">4</div>
+            <h4>리포트</h4>
+            <p>모든 활동은 프록시 서버에 로깅되어 관리자가 대시보드에서 확인합니다.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 BlueGuard Security. All rights reserved.</p>
+    <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+    </div>
+</footer>
+
+</body>
+</html>

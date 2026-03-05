@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueGuard - Privacy Policy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #333;
+            line-height: 1.8;
+            background: #f8f9fa;
+        }
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 { font-size: 1.8rem; margin-bottom: 8px; }
+        header p { opacity: 0.8; }
+        .container {
+            max-width: 760px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 24px;
+        }
+        h2 {
+            font-size: 1.3rem;
+            color: #0f3460;
+            margin: 32px 0 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0f4ff;
+        }
+        h2:first-child { margin-top: 0; }
+        p, li { font-size: 0.95rem; color: #444; margin-bottom: 8px; }
+        ul { padding-left: 24px; margin-bottom: 16px; }
+        .updated {
+            text-align: center;
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            font-size: 0.85rem;
+        }
+        footer a { color: #0f3460; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>BlueGuard Privacy Policy</h1>
+    <p>개인정보처리방침</p>
+</header>
+
+<div class="container">
+    <div class="card">
+
+        <h2>1. 개요</h2>
+        <p>BlueGuard("본 확장 프로그램")는 기업 환경에서 AI 서비스 사용 시 민감 데이터 유출을 방지하기 위한 Chrome 확장 프로그램입니다. 본 개인정보처리방침은 BlueGuard가 수집, 사용, 보관하는 데이터에 대해 설명합니다.</p>
+
+        <h2>2. 수집하는 데이터</h2>
+        <p>BlueGuard는 다음과 같은 데이터를 처리합니다:</p>
+        <ul>
+            <li><strong>AI 서비스 입력 텍스트:</strong> 사용자가 지원 대상 AI 서비스(ChatGPT, Gemini, Claude, Grok, Copilot, Perplexity, Genspark)에 입력하는 텍스트를 실시간으로 검사합니다. 텍스트 자체를 저장하지 않으며, 사전 등록된 키워드 포함 여부만 확인합니다.</li>
+            <li><strong>첨부 파일 메타데이터:</strong> AI 서비스에 업로드되는 문서 파일(PDF, DOCX, PPTX, XLSX)의 내용을 검사합니다. 파일은 로컬에서만 분석되며 외부로 전송되지 않습니다.</li>
+            <li><strong>보안 이벤트 로그:</strong> 키워드 차단/경고 발생 시, 이벤트 유형, 발생 시간, 감지된 키워드 카테고리를 기업 프록시 서버로 전송합니다. 사용자가 입력한 원문 텍스트는 포함되지 않습니다.</li>
+        </ul>
+
+        <h2>3. 데이터 사용 목적</h2>
+        <ul>
+            <li>기업 보안 정책에 따른 민감 정보 유출 방지</li>
+            <li>AI 서비스 사용 현황 모니터링 및 보안 감사</li>
+            <li>보안 정책 위반 알림 및 리포팅</li>
+        </ul>
+
+        <h2>4. 데이터 저장 및 전송</h2>
+        <ul>
+            <li>키워드 검사는 사용자의 <strong>로컬 브라우저</strong>에서만 수행됩니다.</li>
+            <li>보안 이벤트 로그는 기업 내부 프록시 서버로만 전송되며, 외부 제3자 서버로 전송되지 않습니다.</li>
+            <li>사용자의 개인 데이터, 브라우징 기록, 비밀번호 등은 수집하지 않습니다.</li>
+        </ul>
+
+        <h2>5. 제3자 제공</h2>
+        <p>BlueGuard는 수집된 데이터를 제3자에게 판매, 교환, 또는 제공하지 않습니다. 모든 데이터는 해당 기업의 내부 보안 관리 목적으로만 사용됩니다.</p>
+
+        <h2>6. 사용자 권리</h2>
+        <ul>
+            <li>사용자는 확장 프로그램의 팝업을 통해 현재 보안 상태를 확인할 수 있습니다.</li>
+            <li>확장 프로그램 제거 시 로컬에 저장된 모든 데이터가 삭제됩니다.</li>
+            <li>보안 이벤트 로그에 대한 열람 요청은 소속 기업의 보안 관리자에게 문의하시기 바랍니다.</li>
+        </ul>
+
+        <h2>7. 보안</h2>
+        <p>BlueGuard는 데이터 전송 시 기업 내부 네트워크를 통해 암호화된 통신을 사용하며, 로컬 데이터는 Chrome의 보안 저장소(chrome.storage)에 안전하게 보관됩니다.</p>
+
+        <h2>8. 변경 사항</h2>
+        <p>본 개인정보처리방침은 필요에 따라 업데이트될 수 있으며, 변경 시 본 페이지를 통해 고지합니다.</p>
+
+        <h2>9. 문의</h2>
+        <p>개인정보처리방침에 관한 문의사항은 아래로 연락해 주시기 바랍니다:</p>
+        <p><strong>BlueGuard Security Team</strong></p>
+
+        <p class="updated">Last updated: 2026-03-05</p>
+    </div>
+</div>
+
+<footer>
+    <a href="index.html">BlueGuard Home</a>
+</footer>
+
+</body>
+</html>
